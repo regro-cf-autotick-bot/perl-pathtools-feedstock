@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   # nothing provides perl >=5.32.1,<6.0a0 *_perl5 needed by perl-extutils-makemaker-7.36-pl5321hd8ed1ab_0
   skip: true  # [win]
   script:
@@ -22,10 +22,10 @@ build:
 
 requirements:
   build:
-    - {{ stdlib('c') }}          # [not win]
     - {{ compiler('c') }}        # [not win]
-    - {{ stdlib('m2w64_c') }}    # [win]
+    - {{ stdlib('c') }}          # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib('m2w64_c') }}    # [win]
     - make
   host:
     - perl
